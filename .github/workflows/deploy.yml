@@ -30,8 +30,14 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Clean install dependencies
+        run: |
+          rm -rf node_modules
+          rm -f package-lock.json
+          npm install
+
+      - name: Install Rollup
+        run: npm install @rollup/rollup-linux-x64-gnu
 
       - name: Build project
         run: npm run build
