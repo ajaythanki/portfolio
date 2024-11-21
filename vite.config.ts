@@ -21,11 +21,6 @@ export default defineConfig({
             sizes: '192x192',
             type: 'image/svg+xml',
           },
-          {
-            src: 'favicon.svg',
-            sizes: '512x512',
-            type: 'image/svg+xml',
-          },
         ],
       },
     }),
@@ -37,20 +32,15 @@ export default defineConfig({
     },
   },
   build: {
+    outDir: 'dist',
+    sourcemap: true,
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react', 'react-dom', 'framer-motion'],
-          ui: ['@/components/shared'],
+          'react-vendor': ['react', 'react-dom'],
+          'animation-vendor': ['framer-motion'],
+          'ui-vendor': ['@radix-ui/react-dropdown-menu', '@radix-ui/react-slot'],
         },
-      },
-    },
-    chunkSizeWarningLimit: 1000,
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
       },
     },
   },
