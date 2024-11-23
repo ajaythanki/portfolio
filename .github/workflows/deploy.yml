@@ -30,14 +30,8 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
-      - name: Clean install dependencies
-        run: |
-          rm -rf node_modules
-          rm -f package-lock.json
-          npm install
-
-      - name: Install Rollup
-        run: npm install @rollup/rollup-linux-x64-gnu
+      - name: Install dependencies
+        run: npm install
 
       - name: Build project
         run: npm run build
@@ -45,7 +39,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: ./dist
+          path: ./dist  # Next.js SSR output directory
 
   deploy:
     environment:

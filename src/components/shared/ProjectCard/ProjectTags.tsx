@@ -13,7 +13,7 @@ export const ProjectTags = ({ tags, delay = 0 }: ProjectTagsProps) => {
       transition={{ duration: 0.3, delay }}
       className="flex flex-wrap gap-2 mt-4"
     >
-      {tags.map((tag) => (
+      {tags?.map((tag) => (
         <span
           key={tag}
           className="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full"

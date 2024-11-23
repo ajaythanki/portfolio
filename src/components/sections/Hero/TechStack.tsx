@@ -1,3 +1,4 @@
+'use client';
 import { SiReact, SiNodedotjs, SiMongodb, SiExpress, SiTypescript, SiTailwindcss } from 'react-icons/si';
 import { TechIcon } from '@/components/shared/TechIcon';
 import { motion } from 'framer-motion';

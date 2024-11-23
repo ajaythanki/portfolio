@@ -1,13 +1,17 @@
+'use client'
+
 import { useState, useEffect } from 'react';
 import { ModeToggle } from '@/components/mode-toggle';
 import { NavLink } from './NavLink';
 import { MobileMenu } from './MobileMenu';
+import Link from 'next/link';
 
 const navItems = [
-  { name: 'Home', href: '#' },
-  { name: 'About', href: '#about' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/#about' },
+  { name: 'Projects', href: '/#projects' },
+  { name: 'Testimonials', href: '/#testimonials' },
+  { name: 'Contact', href: '/#contact' },
 ];
 
 export const Navbar = () => {
@@ -27,15 +31,21 @@ export const Navbar = () => {
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}
+      role="navigation"
+      aria-label="Main navigation"
     >
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
-          <a href="#" className="text-2xl font-bold text-gray-900 dark:text-white">
-            Ajay<span className="text-blue-500">Thanki</span>
-          </a>
+        <div className="flex items-center justify-between h-16">
+          <Link 
+            href="/"
+            className="text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-300"
+            aria-label="Ajay Thanki - Portfolio"
+          >
+            AT
+          </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex md:items-center md:space-x-8">
             {navItems.map((item) => (
               <NavLink key={item.name} href={item.href}>
                 {item.name}
@@ -45,38 +55,52 @@ export const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center space-x-4 md:hidden">
-            <ModeToggle />
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
-              aria-label="Toggle mobile menu"
+          <button
+            type="button"
+            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-controls="mobile-menu"
+            aria-expanded={isMenuOpen}
+          >
+            <span className="sr-only">Open main menu</span>
+            {/* Icon when menu is closed */}
+            <svg
+              className={`${isMenuOpen ? 'hidden' : 'block'} h-6 w-6`}
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
+              <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {isMenuOpen ? (
-                  <path d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
-          </div>
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+            {/* Icon when menu is open */}
+            <svg
+              className={`${isMenuOpen ? 'block' : 'hidden'} h-6 w-6`}
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
         </div>
-
-        <MobileMenu
-          isOpen={isMenuOpen}
-          onClose={() => setIsMenuOpen(false)}
-          navItems={navItems}
-        />
       </div>
+
+      {/* Mobile Menu */}
+      <MobileMenu isOpen={isMenuOpen} navItems={navItems} onClose={() => setIsMenuOpen(false)} />
     </nav>
   );
 };

@@ -7,6 +7,8 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Cache directories
+.next
 node_modules
 dist
 dist-ssr

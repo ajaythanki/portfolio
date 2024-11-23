@@ -22,7 +22,7 @@ interface ProjectCardProps {
 export const ProjectCard = ({ project, index }: ProjectCardProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const delay = 0.1 * index;
-  const allImages = [project.image, ...(project.secondaryImages || [])];
+  const allImages = [project?.image, ...(project?.secondaryImages || [])];
 
   const handleImageChange = (newIndex: number) => {
     setCurrentImageIndex(newIndex);
@@ -38,7 +38,7 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
       <div className="relative group">
         <img
           src={allImages[currentImageIndex]}
-          alt={project.title}
+          alt={project?.title}
           loading="lazy"
           decoding="async"
           className="w-full h-48 object-cover object-top transition-transform duration-300 group-hover:scale-105"
@@ -78,13 +78,13 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
 
       <div className="p-6">
         <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-          {project.title}
+          {project?.title}
         </h3>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
-          {project.description}
+          {project?.description}
         </p>
-        <ProjectTags tags={project.tags} />
-        <ProjectLinks github={project.github} live={project.live} />
+        <ProjectTags tags={project?.tags} />
+        <ProjectLinks github={project?.github} live={project?.live} />
       </div>
     </motion.article>
   );
