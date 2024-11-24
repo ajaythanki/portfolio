@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { ThemeProvider } from '@/components/theme-provider'
+import { LoadingScreen } from '@/components/shared/LoadingScreen'
 import { Navbar } from '@/components/layout/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Ajay Thanki - Portfolio',
-  description: 'Full Stack Developer specializing in React, Node.js, and modern web technologies.',
+  title: 'Ajay Thanki - Creative Developer',
+  description: 'Full Stack Developer specializing in creating immersive digital experiences.',
 }
 
 export default function RootLayout({
@@ -17,17 +17,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
+    <html lang="en" className="dark">
+      <body className={`${inter.className} bg-black text-white`}>
+        <LoadingScreen />
+        <Navbar />
+        <main className="relative">
           {children}
-        </ThemeProvider>
+        </main>
       </body>
     </html>
   )

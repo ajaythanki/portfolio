@@ -1,45 +1,44 @@
 'use client'
 
-import { useState, useEffect } from 'react';
-import { ModeToggle } from '@/components/mode-toggle';
-import { NavLink } from './NavLink';
-import { MobileMenu } from './MobileMenu';
-import Link from 'next/link';
+import { useState, useEffect } from 'react'
+import { NavLink } from './NavLink'
+import { MobileMenu } from './MobileMenu'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 const navItems = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/#about' },
   { name: 'Projects', href: '/#projects' },
-  { name: 'Testimonials', href: '/#testimonials' },
   { name: 'Contact', href: '/#contact' },
-];
+]
 
 export const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg' : 'bg-transparent'
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, delay: 2.8 }}
+      className={`fixed w-full z-50 transition-colors duration-300 ${
+        isScrolled ? 'bg-black/50 backdrop-blur-md' : 'bg-transparent'
       }`}
-      role="navigation"
-      aria-label="Main navigation"
     >
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           <Link 
             href="/"
-            className="text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-300"
-            aria-label="Ajay Thanki - Portfolio"
+            className="text-2xl font-bold gradient-text"
           >
             AT
           </Link>
@@ -51,13 +50,12 @@ export const Navbar = () => {
                 {item.name}
               </NavLink>
             ))}
-            <ModeToggle />
           </div>
 
           {/* Mobile Menu Button */}
           <button
             type="button"
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+            className="md:hidden p-2 rounded-md text-white hover:text-gray-300 focus:outline-none"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-controls="mobile-menu"
             aria-expanded={isMenuOpen}
@@ -70,7 +68,6 @@ export const Navbar = () => {
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
@@ -86,7 +83,6 @@ export const Navbar = () => {
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
@@ -101,6 +97,6 @@ export const Navbar = () => {
 
       {/* Mobile Menu */}
       <MobileMenu isOpen={isMenuOpen} navItems={navItems} onClose={() => setIsMenuOpen(false)} />
-    </nav>
-  );
-};
+    </motion.nav>
+  )
+}
