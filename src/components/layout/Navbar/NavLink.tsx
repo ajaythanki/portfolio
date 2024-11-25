@@ -7,13 +7,18 @@ interface NavLinkProps {
   href: string
   children: React.ReactNode
   className?: string
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void
 }
 
-export const NavLink = ({ href, children, className = '' }: NavLinkProps) => {
+export const NavLink = ({ href, children, className = '', onClick }: NavLinkProps) => {
   const pathname = usePathname()
   const isActive = pathname === href || (href !== '/' && pathname?.startsWith(href))
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (onClick) {
+      onClick(e)
+    }
+    
     const href = e.currentTarget.getAttribute('href')
     if (href?.startsWith('/#')) {
       e.preventDefault()

@@ -2,9 +2,9 @@
 
 import * as React from 'react'
 import { cn } from '@/lib/utils'
-import { motion } from 'framer-motion'
+import { motion, HTMLMotionProps } from 'framer-motion'
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends Omit<HTMLMotionProps<"button">, "whileHover" | "whileTap"> {
   variant?: 'default' | 'outline' | 'ghost'
   size?: 'default' | 'sm' | 'lg'
   isLoading?: boolean
@@ -52,4 +52,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = 'Button'
 
-export { Button }
+export { Button, type ButtonProps }
