@@ -29,8 +29,8 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-20 px-4 bg-gray-50 dark:bg-gray-900/50">
-      <div className="max-w-6xl mx-auto">
+    <section id="testimonials" className="py-20 bg-[hsl(var(--surface))] relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -38,10 +38,10 @@ const Testimonials = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-indigo-500 to-purple-500 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Client Testimonials
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-400 max-w-2xl mx-auto">
             Don't just take my word for it - here's what others have to say about working with me.
           </p>
         </motion.div>

@@ -32,7 +32,7 @@ body {
 
 /* Modern Gradient Text */
 .gradient-text {
-  background: linear-gradient(to right, hsl(var(--accent-1)), hsl(var(--accent-2)));
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
