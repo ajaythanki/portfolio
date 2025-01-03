@@ -19,50 +19,38 @@ const experienceData: TimelineSection[] = [
     title: 'WORK EXPERIENCE',
     items: [
       {
-        title: 'Senior Developer',
-        organization: 'Company Name',
-        duration: '2016 - Current',
+        title: 'MERN Stack Developer',
+        organization: 'Web Brains Technologies',
+        duration: '2024 - Current',
         description: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.'
       },
       {
-        title: 'Junior Developer',
-        organization: 'Company Name',
-        duration: '2013 - 2015',
+        title: 'Freelance Web Developer',
+        organization: 'Various',
+        duration: '2019 - 2024',
         description: 'Far far away, behind the word mountains, they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.'
       },
-      {
-        title: 'UI/UX Designer',
-        organization: 'Company Name',
-        duration: '2010 - 2012',
-        description: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.'
-      }
     ]
   },
   {
     title: 'EDUCATION',
     items: [
       {
-        title: 'Masters Degree',
-        organization: 'University Name',
-        duration: '2007 - 2009',
-        description: 'Far far away, behind the word mountains, they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.'
-      },
-      {
         title: 'Bachelors Degree',
-        organization: 'University Name',
-        duration: '2002 - 2006',
+        organization: 'Shri V.J. Modha College of I.T., Porbandar, Gujarat, India',
+        duration: '2015 - 2018',
         description: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.'
       },
       {
-        title: 'Diploma Course',
-        organization: 'College Name',
-        duration: '1999 - 2001',
+        title: 'HSC',
+        organization: 'Navyug Vidhyalaya - Porbandar, Gujarat, India',
+        duration: '2014 - 2015',
         description: 'Far far away, behind the word mountains, they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.'
       },
       {
-        title: 'Graduation',
-        organization: 'College Name',
-        duration: '1994 - 1998',
+        title: 'SSC',
+        organization: 'Navyug Vidhyalaya - Porbandar, Gujarat, India',
+        duration: '2009 - 2010',
         description: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.'
       }
     ]

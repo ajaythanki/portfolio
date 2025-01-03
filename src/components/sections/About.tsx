@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/custom/Card"
 import { motion } from "framer-motion"
-import { SiReact, SiNodedotjs, SiMongodb, SiExpress, SiTypescript, SiJavascript, SiHtml5, SiCss3, SiTailwindcss, SiGit, SiGithub, SiNextdotjs, SiRedux, SiPostman, SiVisualstudiocode, SiVercel } from "react-icons/si"
+import { SiReact, SiNodedotjs, SiMongodb, SiExpress, SiTypescript, SiJavascript, SiHtml5, SiCss3, SiTailwindcss, SiGit, SiGithub, SiNextdotjs, SiRedux, SiPostman, SiVisualstudiocode, SiVercel, SiMui, SiWebflow, SiBootstrap, SiFirebase, SiMysql, SiGraphql, SiAmazonaws, SiDocker, SiGooglecloud } from "react-icons/si"
 import { User, Code2, Briefcase, GraduationCap } from "lucide-react"
 
 interface HighlightCardProps {
@@ -82,61 +82,69 @@ export default function About() {
     {
       icon: <User />,
       title: "Who I Am",
-      description: "A passionate Full Stack Developer with a keen eye for design and user experience.",
+      description: "A specialized Webflow and MERN Stack Developer & Designer with 5+ years of web development experience.",
     },
     {
       icon: <Code2 />,
       title: "What I Do",
-      description: "Build modern web applications using cutting-edge technologies and best practices.",
+      description: "Build responsive web applications with a focus on user experience using modern technologies like NextJS, ReactJS, and Webflow.",
     },
     {
       icon: <Briefcase />,
       title: "Experience",
-      description: "3+ years of experience in developing scalable web applications and RESTful APIs.",
+      description: "5+ years in web development with 3+ years specializing in React ecosystem and MERN stack development.",
     },
     {
       icon: <GraduationCap />,
-      title: "Education",
-      description: "Bachelor's in Computer Science with focus on web technologies and software engineering.",
+      title: "Services",
+      description: "Converting designs to code, building web applications, improving performance, and implementing CMS solutions.",
     },
   ]
 
   const skillCategories = [
     {
       title: "Frontend Development",
-      description: "Building responsive and interactive user interfaces with modern frameworks and tools.",
+      description: "Expertise in modern frontend frameworks and design tools.",
       icon: <SiReact />,
       skills: [
-        { name: "React.js", icon: <SiReact /> },
-        { name: "Next.js", icon: <SiNextdotjs /> },
-        { name: "Redux", icon: <SiRedux /> },
-        { name: "TypeScript", icon: <SiTypescript /> },
         { name: "JavaScript", icon: <SiJavascript /> },
         { name: "HTML5", icon: <SiHtml5 /> },
         { name: "CSS3", icon: <SiCss3 /> },
+        { name: "React.js", icon: <SiReact /> },
+        { name: "Next.js", icon: <SiNextdotjs /> },
+        { name: "TypeScript", icon: <SiTypescript /> },
+        { name: "Redux", icon: <SiRedux /> },
         { name: "Tailwind CSS", icon: <SiTailwindcss /> },
+        { name: "Material UI", icon: <SiMui /> },
+        { name: "Webflow", icon: <SiWebflow /> },
+        { name: "Bootstrap", icon: <SiBootstrap /> },
       ],
     },
     {
-      title: "Backend Development",
-      description: "Creating robust server-side applications and RESTful APIs.",
+      title: "Backend & Database",
+      description: "Building robust server-side applications and managing databases.",
       icon: <SiNodedotjs />,
       skills: [
         { name: "Node.js", icon: <SiNodedotjs /> },
         { name: "Express.js", icon: <SiExpress /> },
         { name: "MongoDB", icon: <SiMongodb /> },
-        { name: "RESTful APIs", icon: <SiPostman /> },
+        { name: "Firebase", icon: <SiFirebase /> },
+        { name: "MySQL", icon: <SiMysql /> },
+        { name: "GraphQL", icon: <SiGraphql /> },
       ],
     },
     {
-      title: "Development Tools",
-      description: "Utilizing industry-standard tools for efficient development workflow.",
-      icon: <SiGit />,
+      title: "DevOps & Tools",
+      description: "Leveraging cloud services and development tools.",
+      icon: <SiAmazonaws />,
       skills: [
+        { name: "AWS", icon: <SiAmazonaws /> },
+        { name: "Docker", icon: <SiDocker /> },
         { name: "Git", icon: <SiGit /> },
-        { name: "GitHub", icon: <SiGithub /> },
-        { name: "VS Code", icon: <SiVisualstudiocode /> },
         { name: "Postman", icon: <SiPostman /> },
+        { name: "VS Code", icon: <SiVisualstudiocode /> },
+        { name: "GCP", icon: <SiGooglecloud /> },
+        { name: "GitHub", icon: <SiGithub /> },
         { name: "Vercel", icon: <SiVercel /> },
       ],
     },
@@ -153,9 +161,10 @@ export default function About() {
         >
           <h2 className="text-3xl font-bold mb-4 text-white">About Me</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            I'm a passionate Full Stack Developer specializing in the MERN stack, with a focus on creating 
-            elegant and efficient solutions. I combine technical expertise with creative problem-solving 
-            to build exceptional web applications.
+            I am a specialized Webflow and MERN Stack Developer & Designer with 5+ years of web development experience. 
+            My expertise lies in building responsive web applications with a focus on user experience, using modern technologies 
+            like NextJS, ReactJS, TypeScript, and Webflow. For the past 3+ years, I've been deeply involved in the React ecosystem, 
+            working with MongoDB, NodeJS, and ExpressJS to deliver full-stack solutions.
           </p>
         </motion.div>
 

@@ -1,97 +1,93 @@
 'use client'
 
-import Image from 'next/image'
 import { Card, CardContent } from "@/components/ui/custom/Card"
 import { Button } from "@/components/ui/custom/Button"
 import { Github, ExternalLink, Boxes } from 'lucide-react'
-import { PlaceholderImage } from '@/components/ui/placeholder-image'
 import { motion } from 'framer-motion'
 
 const projects = [
   {
-    title: "Deal Diner - User Platform",
-    description: "A comprehensive food ordering platform with real-time order tracking and payment integration.",
-    image: "/images/deal-diner-user-site.jpg",
-    tags: ["Next.js", "Node.js", "MongoDB", "Stripe"],
-    githubUrl: "https://github.com/yourusername/deal-diner",
-    liveUrl: "https://deal-diner.com",
+    title: "Full Stack Restaurant Portal",
+    description: "A Restaurant Portal for the client where users can find the deals nearby them.",
+    // image: "",
+    tags: ["React.js", "Node.js", "Express.js", "MongoDB", "Stripe", "Bootsrap", "MUI", "Redux", "JWT", "Firebase Push Notifications"],
     features: [
-      "Real-time order tracking",
-      "Secure payment integration",
-      "Restaurant discovery",
-      "User reviews & ratings"
-    ]
-  },
-  {
-    title: "Deal Diner - Merchant Dashboard",
-    description: "Advanced dashboard for restaurant owners to manage orders, menu, and analytics.",
-    image: "/images/deal-diner-merchant-dashboard.jpg",
-    tags: ["React", "Firebase", "Material UI"],
-    githubUrl: "https://github.com/yourusername/deal-diner-merchant",
-    liveUrl: "https://merchant.deal-diner.com",
-    features: [
-      "Order management system",
-      "Menu customization",
-      "Analytics dashboard",
-      "Inventory tracking"
-    ]
-  },
-  {
-    title: "Deal Diner - Admin Portal",
-    description: "Administrative platform for managing restaurants, users, and system configurations.",
-    image: "/images/deal-diner-admin-dashboard.jpg",
-    tags: ["React", "TypeScript", "Redux"],
-    githubUrl: "https://github.com/yourusername/deal-diner-admin",
-    liveUrl: "https://admin.deal-diner.com",
-    features: [
+      "Admin Dashboard",
       "User management",
+      "Merchant Dashboard",
       "Restaurant verification",
-      "System configuration",
-      "Performance monitoring"
+      "Secure Payment Integration",
+      "Deal Finding",
+      "User Reviews & Ratings",
+      "Table Booking, Menu and Analytics"
     ]
   },
+  
   {
-    title: "Telemedicine Platform",
+    title: "Full Stack Medicine Platform",
     description: "Healthcare platform connecting patients with doctors for virtual consultations.",
-    image: "/images/telemed-user-site.jpg",
-    tags: ["Next.js", "WebRTC", "Tailwind"],
-    githubUrl: "https://github.com/yourusername/telemedicine",
-    liveUrl: "https://telemedicine.com",
+    // image: "",
+    tags: ["React.js", "Node.js", "Express.js", "MongoDB", "Stripe", "Bootstrap", "MUI", "Redux", "JWT", "Firebase Push Notifications"],
     features: [
-      "Video consultations",
+      "Video & Chat consultations",
+      "User management",
+      "Secure Payment Integration",
       "Appointment scheduling",
       "Medical records",
       "E-prescriptions"
     ]
   },
   {
-    title: "MAV Venue Dashboard",
-    description: "Event venue management system with booking and scheduling features.",
-    image: "/images/mav-venue-dashboard.jpg",
-    tags: ["React", "Node.js", "PostgreSQL"],
-    githubUrl: "https://github.com/yourusername/mav-venue",
-    liveUrl: "https://mav-venue.com",
+    title: "Indian Panchang App Admin Dashboard and Backend API",
+    description: "Panchang management dashboard with features to manage mobile app's content and panchang data.",
+    tags: ["React.js", "Node.js", "Express.js", "MongoDB", "Bootstrap", "MUI", "Redux", "JWT", ],
     features: [
-      "Booking management",
-      "Calendar integration",
-      "Payment processing",
+      "Integration",
+      "Importing Bulk data",
       "Event planning tools"
     ]
   },
   {
     title: "Nike Landing Page",
-    description: "Modern and responsive landing page design for Nike products.",
+    description: "Modern and responsive landing page design of Nike product to showcase my tailwind skills.",
     image: "/images/nike-landing-page.jpg",
     tags: ["React", "Framer Motion", "Tailwind"],
-    githubUrl: "https://github.com/yourusername/nike-landing",
-    liveUrl: "https://nike-landing.com",
+    githubUrl: "https://github.com/ajaythanki/nike-shoes",
+    liveUrl: "https://ajaythanki.github.io/nike-shoes/",
     features: [
       "Responsive design",
       "Animation effects",
       "Product showcase",
       "Performance optimized"
     ]
-  }
+  },
+  {
+    title: "Business Advice",
+    description: "I have developed whole login & signup flow with integration of Zapier, Memberstack, Airtable as per clients requirement.",
+    image: "/images/business-advice.jpg",
+    tags: ["Webflow", "Zapier", "Memberstack", "Airtable", "Javascript"],
+    // githubUrl: "https://github.com/ajaythanki/nike-shoes",
+    liveUrl: "https://businessadvice.com.au/",
+    features: [
+      "Responsive design",
+      "Customized UI Development",
+      "Customized Forms"
+    ]
+  },
+  {
+    title: "Air Pollution",
+    description: "It's a Hugo website which is created from Bootstrap theme and all the data comes from csv API and it get updated every midnight and all the pages are dynamically generated through the cvs data API using Node and Gulp, it's deployed on GihHub Action and hosted on Netlify CMS.",
+    image: "/images/airpollution.jpg",
+    tags: ["Hugo", "Bootstrap", "Node.js", "Gulp", "Netlify"],
+    // githubUrl: "https://github.com/ajaythanki/nike-shoes",
+    liveUrl: "https://www.airpollution.io/",
+    features: [
+      "Responsive design",
+      "Air Pollution Forecast",
+      "Data Visualization",
+      "Performance optimized"
+    ]
+  },
 ]
 
 interface ProjectCardProps {
@@ -109,19 +105,16 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       className="group h-full"
     >
       <Card className="h-full bg-[hsl(var(--surface-bright))] border-[hsl(var(--border))] hover:border-[hsl(var(--accent-1))] transition-all backdrop-blur-sm rounded-2xl overflow-hidden">
-        <div className="relative h-48 overflow-hidden">
-          {project.image ? (
-            <Image
+        {project.image && (
+          <div className="relative h-48 overflow-hidden">
+            <img
               src={project.image}
               alt={project.title}
-              fill
-              className="object-cover transition-all duration-500 blur-[2px] group-hover:blur-0 group-hover:scale-105"
+              className="project-image radius-t-lg"
             />
-          ) : (
-            <PlaceholderImage className="w-full h-full" />
-          )}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40 opacity-30 group-hover:opacity-0 transition-all duration-500" />
-        </div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40 opacity-30 group-hover:opacity-0 transition-all duration-500" />
+          </div>
+        )}
 
         <CardContent className="p-6 relative">
           {/* Gradient overlay */}
@@ -160,6 +153,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
             </div>
 
             <div className="flex flex-wrap items-center gap-3">
+              {project?.githubUrl && 
               <Button
                 variant="outline"
                 size="sm"
@@ -169,6 +163,8 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
                   <Github className="w-4 h-4 mr-2" /> Code
                 </a>
               </Button>
+              }
+              {project?.liveUrl && 
               <Button
                 variant="outline"
                 size="sm"
@@ -178,6 +174,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
                   <ExternalLink className="w-4 h-4 mr-2" /> Live Demo
                 </a>
               </Button>
+              }
             </div>
           </div>
         </CardContent>
