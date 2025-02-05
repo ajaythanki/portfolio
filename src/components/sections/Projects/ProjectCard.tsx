@@ -2,10 +2,9 @@
 
 import { Card, CardContent } from "@/components/ui/custom/Card"
 import { Button } from "@/components/ui/custom/Button"
-import { Github, ExternalLink, Boxes } from 'lucide-react'
+import { Github, ExternalLink } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { projects } from "@/lib/data"
-
 interface ProjectCardProps {
   project: typeof projects[0]
   index: number
@@ -21,7 +20,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       className="group h-full"
     >
       <Card className="h-full bg-[hsl(var(--surface-bright))] border-[hsl(var(--border))] hover:border-[hsl(var(--accent-1))] transition-all backdrop-blur-sm rounded-2xl overflow-hidden">
-        {project.image && (
+        {project?.image && (
           <div className="relative h-48 overflow-hidden">
             <img
               src={project.image}
@@ -53,8 +52,29 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
               ))}
             </div>
 
+            {project.type === "Professional" && project.responsibilities && (
+              <div className="space-y-2 mb-6">
+                <h4 className="text-sm font-semibold text-[hsl(var(--accent-1))] mb-2">Key Responsibilities:</h4>
+                {project.responsibilities.map((responsibility, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2 + idx * 0.1 }}
+                    className="flex items-center gap-2 text-sm text-gray-300"
+                  >
+                    <div className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--accent-1))]" />
+                    {responsibility}
+                  </motion.div>
+                ))}
+              </div>
+            )}
+
             <div className="space-y-2 mb-6">
-              {project.features.map((feature, idx) => (
+              {project?.features && project?.features?.length > 0 && (
+                <h4 className="text-sm font-semibold text-[hsl(var(--accent-1))] mb-2">Features:</h4>
+              )}
+              {project?.features?.map((feature, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, x: -20 }}
@@ -99,36 +119,4 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
   )
 }
 
-export default function Projects() {
-  return (
-    <section className="py-20 bg-[hsl(var(--surface))] relative overflow-hidden" id="projects">
-      {/* Background elements */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-1/2 bg-[hsl(var(--accent-1))] opacity-[0.03] blur-[100px] rounded-full" />
-      <div className="absolute bottom-0 left-1/4 w-1/2 h-1/2 bg-[hsl(var(--accent-2))] opacity-[0.03] blur-[100px] rounded-full" />
-      
-      <div className="container mx-auto px-4 relative">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Boxes className="w-8 h-8 text-[hsl(var(--accent-1))]" />
-            <h2 className="text-3xl font-bold text-white">Featured Projects</h2>
-          </div>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Explore my portfolio of web applications and digital solutions. Each project represents
-            my commitment to creating innovative, user-focused experiences with modern technologies.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
+export default ProjectCard
