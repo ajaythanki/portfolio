@@ -161,10 +161,7 @@ export default function About() {
         >
           <h2 className="text-3xl font-bold mb-4 text-white">About Me</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            I am a specialized Webflow and MERN Stack Developer & Designer with 5+ years of web development experience. 
-            My expertise lies in building responsive web applications with a focus on user experience, using modern technologies 
-            like NextJS, ReactJS, TypeScript, and Webflow. For the past 3+ years, I've been deeply involved in the React ecosystem, 
-            working with MongoDB, NodeJS, and ExpressJS to deliver full-stack solutions.
+          Passionate about building meaningful solutions.
           </p>
         </motion.div>
 

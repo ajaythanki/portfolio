@@ -13,6 +13,21 @@ export const projects = [
         ]
     },
     {
+        title: "E-Commerce Perfume Shop",
+        description: "A E-Commerce Perfume shop where user can purchase their favourite perfumes, attar, deodorants",
+        tags: ["Next.js", "Node.js", "Express.js", "MongoDB", "Phonepe", "MUI", "Redux-Toolkit", "JWT", "Shiprocket"],
+        type: "Freelance",
+        features: [
+            "Admin Dashboard",
+            "User management",
+            "End User E-commerce website",
+            "Add to cart, Add to wishlist",
+            "Secure Payment Integration",
+            "User Reviews & Ratings",
+            "Order Tracking"
+        ]
+    },
+    {
         title: "Full Stack Restaurant Portal",
         description: "A Restaurant Portal for the client where users can find the deals nearby them.",
         responsibilities: [
@@ -35,6 +50,31 @@ export const projects = [
         //     "Table Booking, Menu and Analytics"
         // ]
     },
+
+    {
+        title: "SAAS Employee Expense Management System",
+        description: "A SaaS Employee Expense Management System for the client where Companies can manage their employees and can track their expenses and generate reports.",
+        responsibilities: [
+            "Developed Super Admin dashboard with analytics and employee management features",
+            "Implemented secure payment integration using Razorpay",
+            "Created real-time notification system using Firebase",
+            "Built Company dashboard with analytics and expense management features",
+            "Role based access control"
+        ],
+        tags: ["React.js", "Node.js", "Express.js", "MongoDB", "Razorpay", "Bootsrap", "Redux-Toolkit", "JWT", "Firebase Push Notifications"],
+        type: "Professional",
+        // features: [
+        //     "Admin Dashboard",
+        //     "User management",
+        //     "Merchant Dashboard",
+        //     "Restaurant verification",
+        //     "Secure Payment Integration",
+        //     "Deal Finding",
+        //     "User Reviews & Ratings",
+        //     "Table Booking, Menu and Analytics"
+        // ]
+    },
+
     {
         title: "Full Stack Medicine Platform",
         description: "Healthcare platform connecting patients with doctors for virtual consultations.",
