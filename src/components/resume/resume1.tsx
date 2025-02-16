@@ -1,24 +1,30 @@
 "use client"
 
+import { resumeData } from '@/lib/data'
 import { Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react'
 import Image from "next/image"
+import { Quicksand } from 'next/font/google';
 
+const quicksand = Quicksand({
+  subsets: ['latin'],
+  weight: ['300', '400', '700'],
+});
 export default function Resume() {
   return (
-    <div className="max-w-5xl mx-auto p-6 bg-white text-gray-800">
+    <main className={`max-w-5xl mx-auto p-6 bg-white text-gray-800 ${quicksand.className}`}>
       {/* Header Section */}
       <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-G3VVAcDrgCZzWqdk1UXBkfgxoKGUFj.png"
+          src="/profile-pic.jpg"
           alt="Thanki Ajay"
           width={100}
           height={100}
           className="rounded-full"
         />
         <div>
-          <h1 className="text-3xl font-bold mb-2">Thanki Ajay</h1>
+          <h1 className="text-3xl font-bold mb-2">{resumeData.name}</h1>
           <p className="text-gray-600 max-w-2xl">
-            Experienced Web Developer with 5+ years of experience building responsive web applications using HTML, CSS, Javascript & 3 years using Next.JS, React.JS, TypeScript, MongoDB, Node.JS, and ExpressJS, with a focus on user experience.
+            {resumeData.summary}
           </p>
         </div>
       </div>
@@ -30,28 +36,28 @@ export default function Resume() {
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4" />
-              <span>Porbandar, Gujarat</span>
+              <span >{resumeData.location}</span>
             </div>
             <div className="flex items-center gap-2">
               <Mail className="w-4 h-4" />
-              <a href="mailto:ajaythanki@gmail.com" className="text-blue-600 hover:underline">
-                ajaythanki@gmail.com
+              <a href={`mailto:${resumeData.email}`} className="text-blue-600 hover:underline">
+                {resumeData.email}
               </a>
             </div>
             <div className="flex items-center gap-2">
               <Phone className="w-4 h-4" />
-              <span>+91 90998 01722</span>
+              <span>{resumeData.phone}</span>
             </div>
             <div className="flex items-center gap-2">
               <Github className="w-4 h-4" />
-              <a href="https://github.com/ajaythanki" className="text-blue-600 hover:underline">
-                github.com/ajaythanki
+              <a href={resumeData.github} className="text-blue-600 hover:underline">
+                {resumeData.github.split("https://").pop()}
               </a>
             </div>
             <div className="flex items-center gap-2">
               <Linkedin className="w-4 h-4" />
-              <a href="https://linkedin.com/in/ajaythanki" className="text-blue-600 hover:underline">
-                linkedin.com/in/ajaythanki
+              <a href={resumeData.linkedin} className="text-blue-600 hover:underline">
+                {resumeData.linkedin.split("https://").pop()}
               </a>
             </div>
           </div>
@@ -60,24 +66,14 @@ export default function Resume() {
           <div>
             <h2 className="text-xl font-bold mb-4">Education</h2>
             <div className="space-y-4">
-              <div>
-                <h3 className="font-semibold">BCA</h3>
-                <p className="text-gray-600">Saurashtra University</p>
-                <p className="text-gray-500">2018 - 2021</p>
-                <p className="text-gray-600">Rajkot, Gujarat</p>
-              </div>
-              <div>
-                <h3 className="font-semibold">HSC</h3>
-                <p className="text-gray-600">Navyug Vidyalaya (GSHSEB)</p>
-                <p className="text-gray-500">2017 - 2018</p>
-                <p className="text-gray-600">Porbandar, Gujarat</p>
-              </div>
-              <div>
-                <h3 className="font-semibold">SSC</h3>
-                <p className="text-gray-600">Navyug Vidyalaya (GSEB)</p>
-                <p className="text-gray-500">2015 - 2016</p>
-                <p className="text-gray-600">Porbandar, Gujarat</p>
-              </div>
+              {resumeData.education.map((edu, index) => (
+                <div key={index}>
+                  <h3 className="font-semibold">{edu.degree}</h3>
+                  <p className="text-gray-600">{edu.college}</p>
+                  <p className="text-gray-500">{edu.duration}</p>
+                  <p className="text-gray-600">{edu.place}</p>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -85,19 +81,7 @@ export default function Resume() {
           <div>
             <h2 className="text-xl font-bold mb-4">Skills</h2>
             <div className="flex flex-wrap gap-2">
-              {[
-                "React/Next.js",
-                "Node",
-                "Express",
-                "MongoDB",
-                "Javascript (ES6)",
-                "HTML",
-                "CSS",
-                "MUI",
-                "TailwindCSS",
-                "Problem-Solving",
-                "Teamwork",
-              ].map((skill) => (
+              {resumeData.skills.map((skill) => (
                 <span
                   key={skill}
                   className="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-700"
@@ -114,54 +98,32 @@ export default function Resume() {
           <h2 className="text-xl font-bold mb-6">Work Experience</h2>
           
           {/* Current Role */}
-          <div className="mb-8">
-            <div className="flex justify-between items-start mb-2">
-              <h3 className="text-lg font-semibold">MERN Stack Developer, Webbrians Technologies Pvt. Ltd.</h3>
-            </div>
-            <p className="text-gray-600 mb-2">Vadodara, Gujarat • May 2024 — Present</p>
-            
-            <div className="mb-4">
-              <h4 className="font-semibold mb-2">Projects</h4>
-              <div className="space-y-4">
-                <div>
-                  <h5 className="font-medium">SAAS Employee Expense Management System</h5>
-                  <p className="text-gray-600 ml-4">
-                    Developed a comprehensive SaaS platform for managing employee expenses, including features such as subscription management, secure payments, and real-time notifications.
-                  </p>
-                </div>
-                <div>
-                  <h5 className="font-medium">Telemed</h5>
-                  <p className="text-gray-600 ml-4">
-                    Developed a healthcare platform enabling virtual consultations, appointment scheduling, and secure medical records management.
-                  </p>
-                </div>
-                <div>
-                  <h5 className="font-medium">Full Stack Restaurant Portal</h5>
-                  <p className="text-gray-600 ml-4">
-                    Built a user-friendly restaurant portal with features like merchant dashboards, user reviews, and geolocation-based card discovery.
-                  </p>
+          {resumeData.experience.map((exp, index) => (
+            <div key={index} className="mb-8">
+              <div className="flex justify-between items-start mb-2">
+                <h3 className="text-lg font-bold">{exp.role}, {exp.company}</h3>
+              </div>
+              <div className="flex justify-between items-center text-gray-600 mb-2"><span>{exp.location}</span> <span>{exp.duration}</span></div>
+              {/* <p className="text-gray-600 mb-2">{exp.description}</p> */}
+              <div className="mb-4">
+                <h4 className="font-bold mb-2">Projects</h4>
+                <div className="space-y-4">
+                  {exp.projects.map((project, projIndex) => (
+                    <div key={projIndex}>
+                      <h5 className="font-bold">{project.title}</h5>
+                      <ul className="list-disc">
+                        {project.responsibilities.map((resp, respIndex) => (
+                          <li key={respIndex} className="text-gray-600 ml-4">{resp}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Previous Role */}
-          <div>
-            <div className="flex justify-between items-start mb-2">
-              <h3 className="text-lg font-semibold">Freelance Web Developer, Self Employed</h3>
-            </div>
-            <p className="text-gray-600 mb-2">Porbandar, Gujarat • June 2018 — April 2024</p>
-            <ul className="list-disc ml-4 space-y-2 text-gray-600">
-              <li>Developed a diverse range of web apps, including e-commerce platform, custom websites, and SaaS solutions.</li>
-              <li>Utilized a wide array of technologies such as React, Next, Node, MongoDB, Firebase and cloud platforms (AWS, GCP).</li>
-              <li>Demonstrated strong problem-solving and analytical skills in designing and implementing robust and scalable solutions.</li>
-              <li>Collaborated effectively with clients to understand their requirements and deliver projects on time and within budget.</li>
-              <li>Maintained a high level of professionalism and client satisfaction throughout all projects.</li>
-              <li>Presented virtually to the World Conference on Computational Intelligence.</li>
-            </ul>
-          </div>
+          ))}
         </main>
       </div>
-    </div>
+    </main>
   )
 }

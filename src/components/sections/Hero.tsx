@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/custom/Button"
 import { ArrowRight, Github, Linkedin, Mail, Download } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
@@ -73,7 +72,7 @@ export default function Hero() {
                 </Link>
               </Button>
               <Button variant="outline" className="group">
-                <Link href="/resume.pdf" target="_blank" className="flex items-center">
+                <Link href="/resume" target="_blank" className="flex items-center">
                   <Download className="w-4 h-4 mr-2" />
                   Download CV
                 </Link>
@@ -84,11 +83,11 @@ export default function Hero() {
               variants={fadeIn}
               className="flex items-center gap-6"
             >
-              <Link href="https://github.com/yourusername" target="_blank" 
+              <Link href="https://github.com/ajaythanki" target="_blank" 
                 className="text-gray-400 hover:text-white transition-colors">
                 <Github className="w-6 h-6" />
               </Link>
-              <Link href="https://linkedin.com/in/yourusername" target="_blank"
+              <Link href="https://linkedin.com/in/ajaythanki" target="_blank"
                 className="text-gray-400 hover:text-white transition-colors">
                 <Linkedin className="w-6 h-6" />
               </Link>

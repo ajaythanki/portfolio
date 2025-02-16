@@ -15,6 +15,9 @@
   --surface: 240 10% 10%;
   --surface-bright: 240 10% 15%;
   --border: 240 10% 20%;
+
+  /* font-quicksand */
+  --font-quicksand: 'Quicksand', 'Roboto Mono', sans-serif;
 }
 
 /* Smooth Scrolling */
@@ -47,7 +50,7 @@ body {
     radial-gradient(circle at 100% 100%,
     hsl(var(--accent-2) / 0.1),
     transparent 30%);
-  filter: blur(100px);
+  filter: blur(100px); 
   opacity: 0.5;
 }
 

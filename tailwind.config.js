@@ -7,6 +7,10 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    fontFamily: {
+      sans: ['var(--font-inter)', 'sans-serif'],
+      quicksand: ['var(--font-quicksand)'],
+    },
     container: {
       center: true,
       padding: "2rem",

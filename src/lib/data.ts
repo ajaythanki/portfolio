@@ -193,3 +193,94 @@ export const testimonials = [
         rating: 5
     }
 ];
+
+
+export const resumeData = {
+    name: "Ajay Thanki",
+    summary: 'Experienced Web Developer with 5+ years of experience building responsive web applications using HTML, CSS, Javascript & 3 years using Next.JS, React.JS, TypeScript, MongoDB, Node.JS, and ExpressJS, with a focus on user experience.',
+    location: "Porbandar, Gujarat",
+    role: "Mern Stack Developer",
+    email: "akthanki5@gmail.com",
+    phone: "+91 90998 01722",
+    github: "https://github.com/ajaythanki",
+    linkedin: "https://linkedin.com/in/ajaythanki",
+    twitter: "https://twitter.com/ajaythanki",
+    education: [
+        {
+            degree: "Bachelors in Computer Applications (BCA)",
+            college: "Saurashtra University",
+            duration: "June 2015 - May 2018",
+            place: "Porbandar, Gujarat"
+        },
+        {
+            degree: "HSC",
+            college: "Navyug Vidyalaya (GSHSEB)",
+            duration: "June 2014 - May 2015",
+            place: "Porbandar, Gujarat"
+        },
+        {
+            degree: "SSC",
+            college: "Navyug Vidyalaya (GSEB)",
+            duration: "June 2009 - May 2010",
+            place: "Porbandar, Gujarat"
+        },
+    ],
+    skills: [
+        "React/Next.js",
+        "Node",
+        "Express",
+        "MongoDB",
+        "Javascript (ES6)",
+        "HTML",
+        "CSS",
+        "MUI",
+        "TailwindCSS",
+        "Problem-Solving",
+        "Teamwork",
+        "Communication",
+    ],
+    experience: [
+        {
+            company: "Webbrians Technologies Pvt. Ltd.",
+            role: "MERN Stack Developer",
+            location: "Vadodara, Gujarat",
+            duration: "May 2024 - Present",
+            description: "Developing web applications using Next.js, React.js, TypeScript, and Node.js.",
+            projects: [
+                {
+                    title: "SaaS Employee Expense Management System",
+                    link: "",
+                    duration: "Jan. 2025 - Feb. 2025",
+                    responsibilities: [
+                        "SaaS Employee Expense Management System is a web application that allows users to manage their expenses and track their spending.",
+                        "Developed Super Admin dashboard with analytics and employee management features",
+                        "Implemented secure payment integration using Razorpay",
+                        "Created real-time notification system using Firebase",
+                        "Built Company dashboard with analytics and expense management features",
+                        "Role based access control"
+                    ],
+                    techStack: ["React", "Redux-Toolkit", "Framer Motion", "Tailwind"]
+                }
+            ]
+        },
+        {
+            company: "Self Employed",
+            role: "Freelance Web Developer",
+            location: "Porbandar, Gujarat",
+            duration: "August 2018 - April 2024",
+            description: "",
+            projects: [
+                {
+                    title: "Tarba Patient Portal",
+                    link: "",
+                    duration: "",
+                    responsibilities: [
+                        "Tarba Patient Portal is a Personalized Cancer Treatment Portal for the client where users login and manage their profile and upload their medical records."
+                    ],
+                    techStack: ["React", "Redux-Toolkit", "Framer Motion", "Tailwind"]
+                }
+            ]
+        }
+
+    ]
+}

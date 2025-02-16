@@ -7,10 +7,12 @@ import Projects from '@/components/sections/Projects'
 import Contact from '@/components/sections/Contact'
 import Testimonials from '@/components/sections/Testimonials'
 import { Footer } from '@/components/layout/Footer'
+import { Navbar } from '@/components/layout/Navbar'
 
 export default function Home() {
   return (
     <>
+      <Navbar />
       <Hero />
       <About />
       <Experience />
