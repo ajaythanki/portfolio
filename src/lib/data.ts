@@ -1,7 +1,7 @@
 export const projects = [
     {
         title: "Tarba Patient Portal",
-        description: "Tarba Patient Portal is a Personalized Cancer Treatment Portal for the client where users login and manage their profile and upload their medical records.",
+        description: "Tarba Patient Portal is a Personalized Medical Treatment Portal for the client where users login and manage their profile and upload their medical records.",
         image: "/images/tarba-patient-portal.png",
         tags: ["React", "Redux-Toolkit", "Framer Motion", "Tailwind"],
         type: "Freelance",
@@ -55,11 +55,10 @@ export const projects = [
         title: "SAAS Employee Expense Management System",
         description: "A SaaS Employee Expense Management System for the client where Companies can manage their employees and can track their expenses and generate reports.",
         responsibilities: [
-            "Developed Super Admin dashboard with analytics and employee management features",
-            "Implemented secure payment integration using Razorpay",
-            "Created real-time notification system using Firebase",
-            "Built Company dashboard with analytics and expense management features",
-            "Role based access control"
+            "Implemented role-based access control for secure user management.",
+            "Developed a dynamic expense form using Formik and Yup for validation.",
+            "Created a custom table component with pagination and nested table functionality.",
+            "Integrated secure payment processing using Razorpay."
         ],
         tags: ["React.js", "Node.js", "Express.js", "MongoDB", "Razorpay", "Bootsrap", "Redux-Toolkit", "JWT", "Firebase Push Notifications"],
         type: "Professional",
@@ -76,14 +75,13 @@ export const projects = [
     },
 
     {
-        title: "Full Stack Medicine Platform",
+        title: "Full Stack Medicine Platform (Admin & Doctor Dashboard | Patient Portal)",
         description: "Healthcare platform connecting patients with doctors for virtual consultations.",
         responsibilities: [
-            "Built video consultation feature using WebRTC",
-            "Developed appointment scheduling system",
-            "Implemented secure medical records management",
-            "Created e-prescription generation system",
-            "Integrated payment gateway for consultation fees"
+            "Built an e-commerce flow with appointment scheduling and dynamic time slot availability.",
+            "Integrated secure payment gateways for consultation fee processing.",
+            "Optimized database queries, improving large data exports by 50% efficiency.",
+            "Designed a protected Doctor Dashboard with role-based access and custom layouts.",
         ],
         tags: ["React.js", "Node.js", "Express.js", "MongoDB", "Stripe", "Bootstrap", "MUI", "Redux", "JWT", "Firebase Push Notifications"],
         type: "Professional",
@@ -131,7 +129,7 @@ export const projects = [
     },
     {
         title: "Business Advice",
-        description: "I have developed whole login & signup flow with integration of Zapier, Memberstack, Airtable as per clients requirement.",
+        description: "Developed Custom Authentication flow with integration of Zapier, Memberstack, Airtable as per clients requirement.",
         image: "/images/business-advice.jpg",
         tags: ["Webflow", "Zapier", "Memberstack", "Airtable", "Javascript"],
         liveUrl: "https://businessadvice.com.au/",
@@ -144,7 +142,7 @@ export const projects = [
     },
     {
         title: "Air Pollution",
-        description: "It's a Hugo website which is created from Bootstrap theme and all the data comes from csv API and it get updated every midnight and all the pages are dynamically generated through the cvs data API using Node and Gulp, it's deployed on GihHub Action and hosted on Netlify CMS.",
+        description: "Built a Hugo website using a Bootstrap theme, dynamically generating content from a CSV API updated nightly via Node and Gulp. Deployed on Netlify CMS with GitHub Actions",
         image: "/images/airpollution.jpg",
         tags: ["Hugo", "Bootstrap", "Node.js", "Gulp", "Netlify"],
         liveUrl: "https://www.airpollution.io/",
@@ -189,7 +187,6 @@ export const testimonials = [
         role: "Tech Lead",
         company: "DevHub",
         testimonial: "I've had the pleasure of working with Ajay on several projects. His deep understanding of modern web technologies and commitment to writing clean, maintainable code makes him an invaluable team member.",
-        image: "/testimonials/person3.jpg",
         rating: 5
     }
 ];

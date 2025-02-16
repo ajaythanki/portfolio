@@ -9,7 +9,7 @@ const skillCategories = [
     description: "Building modern, responsive web applications with cutting-edge technologies.",
     skills: [
       { name: "React.js", level: "Expert", percentage: 90 },
-      { name: "Next.js", level: "Advanced", percentage: 85 },
+      { name: "Next.js", level: "Intermediate", percentage: 75 },
       { name: "TypeScript", level: "Advanced", percentage: 80 },
       { name: "Tailwind CSS", level: "Expert", percentage: 95 },
     ],
@@ -29,9 +29,10 @@ const skillCategories = [
     description: "Implementing efficient development workflows and deployment strategies.",
     skills: [
       { name: "Git", level: "Advanced", percentage: 85 },
-      { name: "Docker", level: "Intermediate", percentage: 70 },
+      // { name: "Docker", level: "Intermediate", percentage: 70 },
       { name: "AWS", level: "Intermediate", percentage: 65 },
-      { name: "Testing", level: "Advanced", percentage: 75 },
+      { name: "Testing", level: "Intermediate", percentage: 65 },
+      { name: "CI/CD", level: "Intermediate", percentage: 65 },
     ],
   },
 ]

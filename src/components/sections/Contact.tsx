@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Send, Mail, MapPin } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useEffect, useState } from "react"
+import axios from "axios"
 
 export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -37,18 +38,37 @@ export default function Contact() {
     return formData[name as keyof typeof formData] !== '';
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  
+
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
     try{
       console.log('Form submitted');
+      const response = await axios.post('/api/send-email', {
+        to: 'akthanki5@gmail.com', 
+        subject: "New enquiry from Portfolio",
+        html: `<html><body>
+        <p>Name: ${formData.name}</p>
+        <p>Email: ${formData.email}</p>
+        <p>Subject: ${formData.subject}</p>
+        <p>Message: ${formData.message}</p>
+        </body></html>`,
+      });
+
+      if (response.status === 200) {
+        setIsSubmitted(true);
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
+        })
+      } else {
+        console.error("Email sending failed:", response.data); 
+      }
       setIsSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-      })
     }catch(e){
       console.log(e);
     } finally{

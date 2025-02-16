@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/custom/Card"
 import { motion } from "framer-motion"
-import { SiReact, SiNodedotjs, SiMongodb, SiExpress, SiTypescript, SiJavascript, SiHtml5, SiCss3, SiTailwindcss, SiGit, SiGithub, SiNextdotjs, SiRedux, SiPostman, SiVisualstudiocode, SiVercel, SiMui, SiWebflow, SiBootstrap, SiFirebase, SiMysql, SiGraphql, SiAmazonaws, SiDocker, SiGooglecloud } from "react-icons/si"
+import { SiReact, SiNodedotjs, SiMongodb, SiExpress, SiTypescript, SiJavascript, SiHtml5, SiCss3, SiTailwindcss, SiGit, SiGithub, SiNextdotjs, SiRedux, SiPostman, SiVisualstudiocode, SiVercel, SiMui, SiWebflow, SiBootstrap, SiFirebase, SiMysql,  SiAmazonaws,  SiGooglecloud, SiTrello } from "react-icons/si"
 import { User, Code2, Briefcase, GraduationCap } from "lucide-react"
 
 interface HighlightCardProps {
@@ -130,7 +130,7 @@ export default function About() {
         { name: "MongoDB", icon: <SiMongodb /> },
         { name: "Firebase", icon: <SiFirebase /> },
         { name: "MySQL", icon: <SiMysql /> },
-        { name: "GraphQL", icon: <SiGraphql /> },
+        // { name: "GraphQL", icon: <SiGraphql /> },
       ],
     },
     {
@@ -139,13 +139,14 @@ export default function About() {
       icon: <SiAmazonaws />,
       skills: [
         { name: "AWS", icon: <SiAmazonaws /> },
-        { name: "Docker", icon: <SiDocker /> },
+        // { name: "Docker", icon: <SiDocker /> },
         { name: "Git", icon: <SiGit /> },
         { name: "Postman", icon: <SiPostman /> },
         { name: "VS Code", icon: <SiVisualstudiocode /> },
         { name: "GCP", icon: <SiGooglecloud /> },
         { name: "GitHub", icon: <SiGithub /> },
         { name: "Vercel", icon: <SiVercel /> },
+        { name: "Trello", icon: <SiTrello /> },
       ],
     },
   ]

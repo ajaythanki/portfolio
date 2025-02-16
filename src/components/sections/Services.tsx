@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/custom/Card"
 import { motion } from "framer-motion"
-import { Code, Server, Palette, Database, Cloud, Users } from "lucide-react"
+import { Code, Server, Palette } from "lucide-react"
 
 interface ServiceCardProps {
   title: string
@@ -90,39 +90,39 @@ const services = [
       "Interaction design",
     ],
   },
-  {
-    title: "Database Solutions",
-    description: "Designing and implementing efficient database solutions for your applications.",
-    icon: <Database className="w-7 h-7" />,
-    features: [
-      "Database design",
-      "Data modeling",
-      "Query optimization",
-      "Data migration",
-    ],
-  },
-  {
-    title: "Cloud Services",
-    description: "Deploying and managing applications on modern cloud platforms.",
-    icon: <Cloud className="w-7 h-7" />,
-    features: [
-      "Cloud deployment",
-      "Serverless architecture",
-      "CI/CD implementation",
-      "Cloud optimization",
-    ],
-  },
-  {
-    title: "Technical Consulting",
-    description: "Providing expert advice and solutions for your technical challenges.",
-    icon: <Users className="w-7 h-7" />,
-    features: [
-      "Architecture planning",
-      "Technology selection",
-      "Performance audits",
-      "Security assessment",
-    ],
-  },
+  // {
+  //   title: "Database Solutions",
+  //   description: "Designing and implementing efficient database solutions for your applications.",
+  //   icon: <Database className="w-7 h-7" />,
+  //   features: [
+  //     "Database design",
+  //     "Data modeling",
+  //     "Query optimization",
+  //     "Data migration",
+  //   ],
+  // },
+  // {
+  //   title: "Cloud Services",
+  //   description: "Deploying and managing applications on modern cloud platforms.",
+  //   icon: <Cloud className="w-7 h-7" />,
+  //   features: [
+  //     "Cloud deployment",
+  //     "Serverless architecture",
+  //     "CI/CD implementation",
+  //     "Cloud optimization",
+  //   ],
+  // },
+  // {
+  //   title: "Technical Consulting",
+  //   description: "Providing expert advice and solutions for your technical challenges.",
+  //   icon: <Users className="w-7 h-7" />,
+  //   features: [
+  //     "Architecture planning",
+  //     "Technology selection",
+  //     "Performance audits",
+  //     "Security assessment",
+  //   ],
+  // },
 ]
 
 export default function Services() {

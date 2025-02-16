@@ -1,20 +1,21 @@
-import { Github, Linkedin, Twitter } from 'lucide-react'
+import { Github, Linkedin } from 'lucide-react'
+import { SiUpwork } from 'react-icons/si'
 
 const socialLinks = [
   {
     icon: <Github className="w-5 h-5" />,
-    href: "https://github.com/yourusername",
+    href: "https://github.com/ajaythanki",
     label: "GitHub"
   },
   {
     icon: <Linkedin className="w-5 h-5" />,
-    href: "https://linkedin.com/in/yourusername",
+    href: "https://linkedin.com/in/ajaythanki",
     label: "LinkedIn"
   },
   {
-    icon: <Twitter className="w-5 h-5" />,
-    href: "https://twitter.com/yourusername",
-    label: "Twitter"
+    icon: <SiUpwork className="w-5 h-5" />,
+    href: "https://www.upwork.com/freelancers/~014f0f681c0f30f780?mp_source=share",
+    label: "Upwork"
   }
 ]
 

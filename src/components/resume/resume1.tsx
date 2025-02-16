@@ -4,12 +4,41 @@ import { resumeData } from '@/lib/data'
 import { Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react'
 import Image from "next/image"
 import { Quicksand } from 'next/font/google';
+// import { useReactToPrint } from "react-to-print";
+// import React, { useEffect } from 'react';
 
 const quicksand = Quicksand({
   subsets: ['latin'],
   weight: ['300', '400', '700'],
 });
 export default function Resume() {
+
+  // const componentRef = React.useRef(null);
+
+  // const handleAfterPrint = React.useCallback(() => {
+  //   console.log("`onAfterPrint` called");
+  // }, []);
+
+  // const handleBeforePrint = React.useCallback(() => {
+  //   console.log("`onBeforePrint` called");
+  //   return Promise.resolve();
+  // }, []);
+
+  // const printFn = useReactToPrint({
+  //   contentRef: componentRef,
+  //   documentTitle: "AwesomeFileName",
+  //   onAfterPrint: handleAfterPrint,
+  //   onBeforePrint: handleBeforePrint,
+  // });
+
+  // useEffect(() => {
+  //   if (componentRef.current)
+  //     printFn()
+  //   return () => {
+  //     componentRef.current = null;
+  //   }
+  // }, [])
+
   return (
     <main className={`max-w-5xl mx-auto p-6 bg-white text-gray-800 ${quicksand.className}`}>
       {/* Header Section */}
@@ -96,7 +125,7 @@ export default function Resume() {
         {/* Main Content - Work Experience */}
         <main>
           <h2 className="text-xl font-bold mb-6">Work Experience</h2>
-          
+
           {/* Current Role */}
           {resumeData.experience.map((exp, index) => (
             <div key={index} className="mb-8">

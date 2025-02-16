@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/custom/Button"
 import { ArrowRight, Github, Linkedin, Mail, Download } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
+// import { useRouter } from 'next/router'
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
@@ -20,6 +21,7 @@ const staggerContainer = {
 }
 
 export default function Hero() {
+  // const router = useRouter();
   return (
     <section className="min-h-screen bg-[hsl(var(--surface))] flex items-center relative overflow-hidden py-20 lg:py-0" id="home">
       {/* Background gradients */}
