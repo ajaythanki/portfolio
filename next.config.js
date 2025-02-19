@@ -5,8 +5,8 @@ const nextConfig = {
     unoptimized: true,
   },
   ...(process.env.NODE_ENV === 'production' ? {
-    basePath: '/portfolio',
-    assetPrefix: '/portfolio/',
+    basePath: '',
+    assetPrefix: '/',
   } : {}),
 }
 
