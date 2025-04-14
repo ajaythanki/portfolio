@@ -6,7 +6,7 @@ interface TimelineItem {
   title: string
   organization: string
   duration: string
-  description: string
+  description?: string
 }
 
 interface TimelineSection {
@@ -22,13 +22,13 @@ const experienceData: TimelineSection[] = [
         title: 'MERN Stack Developer',
         organization: 'Web Brains Technologies',
         duration: '2024 - Current',
-        description: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.'
+        description: "Developing full-stack applications using MongoDB, Express, React, and Node.js. Focused on creating responsive and user-friendly interfaces."
       },
       {
         title: 'Freelance Web Developer',
         organization: 'Various',
         duration: '2019 - 2024',
-        description: 'Far far away, behind the word mountains, they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.'
+        description: "Worked on various projects, enhancing web functionality and user experience through custom solutions."
       },
     ]
   },
@@ -39,19 +39,16 @@ const experienceData: TimelineSection[] = [
         title: 'Bachelors Degree',
         organization: 'Shri V.J. Modha College of I.T., Porbandar, Gujarat, India',
         duration: '2015 - 2018',
-        description: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.'
       },
       {
         title: 'HSC',
         organization: 'Navyug Vidhyalaya - Porbandar, Gujarat, India',
         duration: '2014 - 2015',
-        description: 'Far far away, behind the word mountains, they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.'
       },
       {
         title: 'SSC',
         organization: 'Navyug Vidhyalaya - Porbandar, Gujarat, India',
         duration: '2009 - 2010',
-        description: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.'
       }
     ]
   }
@@ -74,11 +71,11 @@ const TimelineEntry = ({ item, index }: { item: TimelineItem; index: number }) =
     />
     <motion.div
       whileHover={{ y: -5 }}
-      className="relative bg-[hsl(var(--surface-bright))] p-6 rounded-2xl backdrop-blur-sm border border-[hsl(var(--border))] transition-all duration-300 hover:bg-[hsl(var(--surface-bright))/70] hover:border-[hsl(var(--accent-1))]"
+      className="relative bg-[hsl(var(--surface-bright))] p-6 rounded-2xl backdrop-blur-sm border border-[hsl(var(--border))] shadow-lg transition-all duration-300 hover:bg-[hsl(var(--surface-bright))/70] hover:border-[hsl(var(--accent-1))]"
     >
       <h3 className="text-xl font-bold mb-2 text-white">{item.title}</h3>
       <p className="text-gray-400 text-sm mb-4">{item.organization} - {item.duration}</p>
-      <p className="text-gray-300">{item.description}</p>
+      {item?.description && <p className="text-gray-300">{item?.description}</p>}
     </motion.div>
   </motion.div>
 )
@@ -87,7 +84,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="min-h-screen bg-[hsl(var(--surface))] text-white p-8 font-mono"
+      className="min-h-screen bg-[hsl(var(--surface))] text-white p-10 font-mono"
     >
       <div className="max-w-4xl mx-auto">
         {experienceData.map((section, idx) => (

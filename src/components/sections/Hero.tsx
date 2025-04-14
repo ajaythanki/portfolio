@@ -74,7 +74,7 @@ export default function Hero() {
                 </Link>
               </Button>
               <Button variant="outline" className="group">
-                <Link href="/resume" target="_blank" className="flex items-center">
+                <Link href="./Resume -Ajay Thanki - MERN Stack Developer.pdf" target="_blank" download={true} className="flex items-center">
                   <Download className="w-4 h-4 mr-2" />
                   Download CV
                 </Link>
