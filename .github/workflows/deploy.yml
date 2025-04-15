@@ -46,7 +46,11 @@ jobs:
     needs: build
     steps:
       - name: Verify artifact upload
-        run: echo "Verifying artifact upload is successful..."
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "Error: 'dist' directory not found. Ensure the build step generates the output correctly."
+            exit 1
+          fi
 
       - name: Deploy to GitHub Pages
         id: deployment
