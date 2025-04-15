@@ -1,82 +1,101 @@
-import { useState, useEffect } from 'react';
-import { ModeToggle } from '@/components/mode-toggle';
-import { NavLink } from './NavLink';
-import { MobileMenu } from './MobileMenu';
+import { useState, useEffect } from 'react'
+import { NavLink } from './NavLink'
+import { MobileMenu } from './MobileMenu'
+import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 const navItems = [
-  { name: 'Home', href: '#' },
-  { name: 'About', href: '#about' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' },
-];
+  { name: 'Home', href: '/#home' },
+  { name: 'About', href: '/#about' },
+  { name: 'Projects', href: '/#projects' },
+  { name: 'Contact', href: '/#contact' },
+]
 
-export const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg' : 'bg-transparent'
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, delay: 2.8 }}
+      className={`fixed w-full z-50 transition-colors duration-300 ${
+        isScrolled ? 'bg-black/50 backdrop-blur-md' : 'bg-transparent'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
-          <a href="#" className="text-2xl font-bold text-gray-900 dark:text-white">
-            Ajay<span className="text-blue-500">Thanki</span>
-          </a>
+        <div className="flex items-center justify-between h-20">
+          <Link 
+            to="/"
+            className="text-2xl font-bold gradient-text"
+          >
+            AT
+          </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex md:items-center md:space-x-8">
             {navItems.map((item) => (
               <NavLink key={item.name} href={item.href}>
                 {item.name}
               </NavLink>
             ))}
-            <ModeToggle />
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center space-x-4 md:hidden">
-            <ModeToggle />
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
-              aria-label="Toggle mobile menu"
+          <button
+            type="button"
+            className="md:hidden p-2 rounded-md text-white hover:text-gray-300 focus:outline-none"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-controls="mobile-menu"
+            aria-expanded={isMenuOpen}
+          >
+            <span className="sr-only">Open main menu</span>
+            {/* Icon when menu is closed */}
+            <svg
+              className={`${isMenuOpen ? 'hidden' : 'block'} h-6 w-6`}
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
+              <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {isMenuOpen ? (
-                  <path d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
-          </div>
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+            {/* Icon when menu is open */}
+            <svg
+              className={`${isMenuOpen ? 'block' : 'hidden'} h-6 w-6`}
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
         </div>
-
-        <MobileMenu
-          isOpen={isMenuOpen}
-          onClose={() => setIsMenuOpen(false)}
-          navItems={navItems}
-        />
       </div>
-    </nav>
-  );
-};
+
+      {/* Mobile Menu */}
+      <MobileMenu isOpen={isMenuOpen} navItems={navItems} onClose={() => setIsMenuOpen(false)} />
+    </motion.nav>
+  )
+}
+export default Navbar

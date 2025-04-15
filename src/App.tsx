@@ -1,28 +1,24 @@
-import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
 import { ThemeProvider } from "@/components/theme-provider";
-import { Navbar } from '@/components/layout/Navbar';
-import { LoadingSpinner } from '@/components/shared/LoadingSpinner';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// Lazy load non-critical sections
-const Hero = lazy(() => import('@/components/sections/Hero'));
-const About = lazy(() => import('@/components/sections/About'));
-const Projects = lazy(() => import('@/components/sections/Projects'));
-const Contact = lazy(() => import('@/components/sections/Contact'));
+import { LoadingScreen } from '@/components/shared/LoadingScreen'
+import Home from './pages/Home';
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <div className="bg-white dark:bg-gray-900 min-h-screen">
-        <Navbar />
-        <main>
-          <Suspense fallback={<LoadingSpinner />}>
-            <Hero />
-            <About />
-            <Projects />
-            <Contact />
-          </Suspense>
-        </main>
-      </div>
+    <ThemeProvider defaultTheme="dark" storageKey="ajay-ui-theme">
+      <BrowserRouter>
+        <div className="bg-white dark:bg-gray-900 min-h-screen font-sans">
+          <main>
+            <Suspense fallback={<LoadingScreen />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+              </Routes>
+            </Suspense>
+          </main>
+        </div>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
