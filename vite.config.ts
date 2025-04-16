@@ -35,6 +35,10 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: true,
     rollupOptions: {
+      input:{
+        main: path.resolve(__dirname, 'index.html'),
+        404: path.resolve(__dirname, '404.html') 
+      },
       output: {
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
