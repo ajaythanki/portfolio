@@ -47,7 +47,7 @@ jobs:
     steps:
       - name: Verify artifact upload
         run: |
-          if [ ! -d "dist" ]; then
+          if [ ! -d "./dist" ]; then
             echo "Error: 'dist' directory not found. Ensure the build step generates the output correctly."
             exit 1
           fi
