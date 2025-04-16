@@ -47,15 +47,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Verify artifact
-        run: |
-          if [ ! -d "./dist" ]; then
-            echo "❌ Error: No dist folder found!"
-            exit 1
-          fi
-          echo "✅ Dist contents:"
-          ls -R dist
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
