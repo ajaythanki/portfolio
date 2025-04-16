@@ -13,10 +13,9 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-
+      
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -44,9 +43,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Wait for artifact processing
-        run: sleep 60 # Give GitHub time to process the artifact
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
