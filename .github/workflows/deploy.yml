@@ -31,7 +31,9 @@ jobs:
         run: npm ci
 
       - name: Build project
-        run: npm run build
+        run: |
+          npm run build
+          ls -R dist  # Debug build output
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -45,12 +47,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Verify artifact upload
+      - name: Verify artifact
         run: |
           if [ ! -d "./dist" ]; then
-            echo "Error: 'dist' directory not found. Ensure the build step generates the output correctly."
+            echo "❌ Error: No dist folder found!"
             exit 1
           fi
+          echo "✅ Dist contents:"
+          ls -R dist
 
       - name: Deploy to GitHub Pages
         id: deployment
