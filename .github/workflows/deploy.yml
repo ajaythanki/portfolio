@@ -15,26 +15,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          
+
       - name: Install dependencies
         run: npm ci
-          
+
       - name: Build project
         run: |
           npm run build
           cp 404.html dist/404.html
-          ls -R dist # Verify build output
-          
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'dist'
-          retention-days: 1
 
   deploy:
     needs: build
@@ -43,10 +41,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Wait for artifact processing
-        run: sleep 10 # Give GitHub time to process the artifact
-      
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
-        timeout-minutes: 5
