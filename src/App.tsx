@@ -8,7 +8,7 @@ import Home from './pages/Home';
 function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="ajay-ui-theme">
-      <BrowserRouter>
+      <BrowserRouter basename={'/portfolio'}>
         <div className="bg-white dark:bg-gray-900 min-h-screen font-sans">
           <main>
             <Suspense fallback={<LoadingScreen />}>
