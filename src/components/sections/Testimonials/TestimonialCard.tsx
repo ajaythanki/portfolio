@@ -22,7 +22,7 @@ export const TestimonialCard = ({ name, role, company, testimonial, image, ratin
 
       <div className="flex flex-col md:flex-row items-center gap-4 mb-4 mt-2">
         {image && <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-[hsl(var(--accent-1))]">
-           <img src={image || "/placeholder.svg?height=64&width=64"} alt={name} className="object-cover w-full h-full" />
+           <img src={import.meta.env.BASE_URL + (image || "/placeholder.svg?height=64&width=64")} alt={name} className="object-cover w-full h-full" />
         </div>}
         <div className="text-center md:text-left">
           <h4 className="font-semibold text-white text-lg">{name}</h4>

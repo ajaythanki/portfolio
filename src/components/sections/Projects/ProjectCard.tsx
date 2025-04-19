@@ -21,7 +21,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
         {project?.image && (
           <div className="relative h-48 overflow-hidden">
             <img
-              src={project.image}
+              src={import.meta.env.BASE_URL+project.image}
               alt={project.title}
               className="project-image radius-t-lg"
             />
