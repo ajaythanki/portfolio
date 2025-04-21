@@ -17,9 +17,10 @@ export const NavLink = ({ href, children, className = '', onClick }: NavLinkProp
     }
     
     const href = e.currentTarget.getAttribute('href')
-    if (href?.startsWith('/#')) {
+    if (href?.includes('#')) {
       e.preventDefault()
-      const targetId = href.replace('/#', '')
+      const targetId = href.split('#')?.[1];
+      if (!targetId) return
       const targetElement = document.getElementById(targetId)
       if (targetElement) {
         targetElement.scrollIntoView({ behavior: 'smooth' })

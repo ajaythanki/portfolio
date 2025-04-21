@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/custom/Button"
 import { ArrowRight, Github, Linkedin, Mail, Download } from "lucide-react"
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
+import { NavLink } from "../layout/Navbar/NavLink";
 // import { useRouter } from 'next/router'
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -79,7 +80,8 @@ export default function Hero() {
               </Button>
               <Button variant="outline" className="group">
                 <Link
-                  to="./Resume -Ajay Thanki - MERN Stack Developer.pdf"
+                  to={"Resume -Ajay Thanki - MERN Stack Developer.pdf"}
+                  download="Ajay Thanki - MERN Stack Developer.pdf"
                   target="_blank"
                   className="flex items-center"
                 >
@@ -105,13 +107,13 @@ export default function Hero() {
                 <Linkedin className="w-6 h-6" />
               </Link>
               <div className="w-px h-6 bg-[hsl(var(--border))]" />
-              <Link
-                to="#projects"
+              <NavLink
+                href="#projects"
                 className="text-white hover:text-[hsl(var(--accent-1))] transition-colors flex items-center gap-2 group"
               >
                 View Projects
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </NavLink>
             </motion.div>
           </div>
 
